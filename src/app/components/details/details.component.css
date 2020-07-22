@@ -1,0 +1,39 @@
+.details-header, p, span {
+    text-transform: capitalize;
+}
+
+
+.comment-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.comment-name, .comment-email {
+    padding-right: 20px;
+    width: 250px;
+}
+
+.comment-section span {
+    font-weight: bold;
+}
+
+.table-post-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.table-post-header h3 {
+    margin-top: 18px;
+}
+
+.table-post-header p {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.table-post-header input {
+    margin-left: 10px;
+    height: 25px;
+    width: 300px;
+}
