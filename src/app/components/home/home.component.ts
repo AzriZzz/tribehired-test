@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   title = 'TribeHired Test';
   allPost;
 
+  renderView = false;
+
   constructor(
     private postService: PostsService,
     private router: Router ) {}
@@ -20,6 +22,7 @@ export class HomeComponent implements OnInit {
     this.postService.getPostAll().subscribe(
       res => {
         this.allPost = res;
+        this.renderView = true;
       }
     );
   }
