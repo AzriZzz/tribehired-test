@@ -338,3 +338,12 @@ tr:nth-child(even) {
   margin-bottom: 5px;
   font-size: 13px;
 } */
+
+.table-post {
+  padding-top: 20px;
+}
+
+pagination-controls {
+  display: flex;
+  justify-content: center;
+}

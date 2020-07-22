@@ -20,18 +20,19 @@
   </div>
 
   <section id="article">
-    <div class="table-post">
-      <div class="container" *ngIf="renderView">
+    <div class="container" *ngIf="renderView">
+      <div class="table-post">
         <tr>
           <th>Title</th>
           <th>Article</th>
           <th></th>
         </tr>
-        <tr *ngFor="let item of allPost">
+        <tr *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">
           <td>{{item.title}}</td>
           <td>{{item.body}}</td>
           <td style="width: 100px;text-align: center;vertical-align: middle;"> <button class="custom-button" (click)="postDetails(item)">Read More</button></td>
         </tr>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>
   </section>

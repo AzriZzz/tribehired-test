@@ -13,7 +13,8 @@ export class HomeComponent implements OnInit {
   allPost;
 
   renderView = false;
-
+  p = 1;
+  collection;
   constructor(
     private postService: PostsService,
     private router: Router ) {}
@@ -21,8 +22,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.postService.getPostAll().subscribe(
       res => {
-        this.allPost = res;
         this.renderView = true;
+        this.allPost = res;
+        this.collection = res;
+        console.log(this.collection);
       }
     );
   }
