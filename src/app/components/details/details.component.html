@@ -12,12 +12,9 @@
                 <h3>Comment Section</h3>
                 <p>Search: <input (keyup)="applyFilter($event.target.value)" placeholder="Name / Email / Comment"></p>
             </div>
-
             <hr>
-
             <div>
-                <!-- notActive is a reference to else -->
-                <div *ngIf="availability; else showThis">
+                <div *ngIf="availability;">
                     <div class="comment-section" *ngFor="let object of commentBodyFiltered">
                         <div class="comment-header">
                             <div class="comment-name">
@@ -30,38 +27,11 @@
                         <div class="comment-body">
                             <p>{{object.body}}</p>
                         </div>
-
                         <hr>
-
                     </div>
                 </div>
-                <ng-template #showThis>
-                    <p>{{errorMessage}}</p>
-                </ng-template>
-            </div>
-
-
-            <!-- <div *ngIf="!availability">
                 <p>{{errorMessage}}</p>
             </div>
-            <div *ngIf="availability">
-                <div class="comment-section" *ngFor="let object of commentBodyFiltered">
-                    <div class="comment-header">
-                        <div class="comment-name">
-                            <p><span>Name  : </span>{{object.name}} </p>
-                        </div>
-                        <div class="comment-email">
-                            <p><span>Email : </span>{{object.email}}</p>
-                        </div>
-                    </div>
-                    <div class="comment-body">
-                        <p>{{object.body}}</p>
-                    </div>
-
-                    <hr>
-
-                </div>
-            </div> -->
         </div>
     </div>
 </section>

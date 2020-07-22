@@ -54,18 +54,20 @@ export class DetailsComponent implements OnInit {
           }
         }
       );
-    } else {
-      this.errorMessage = 'No comment found!';
-    }
+    } 
   }
 
   applyFilter(filterValue: string) {
+    this.errorMessage = '';
     if (this.commentBody) {
       this.commentBodyFiltered = this.commentBody.filter(
         item => item.name.toLowerCase().includes(filterValue.toLowerCase()) ||
         item.email.toLowerCase().includes(filterValue.toLowerCase()) ||
         item.body.toLowerCase().includes(filterValue.toLowerCase())
       );
+      if (this.commentBodyFiltered.length === 0) {
+        this.errorMessage = 'No comment found!';
+      }
     } else {
       this.commentBodyFiltered = this.commentBody;
       this.availability = true;
