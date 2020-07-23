@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
         this.renderView = true;
         this.allPost = res;
         this.collection = res;
-        console.log(this.collection);
       }
     );
   }
