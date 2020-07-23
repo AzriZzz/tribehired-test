@@ -14,7 +14,7 @@
             </div>
             <hr>
             <div>
-                <div *ngIf="availability;">
+                <div *ngIf="availability; else showThis">
                     <div class="comment-section" *ngFor="let object of commentBodyFiltered">
                         <div class="comment-header">
                             <div class="comment-name">
@@ -30,7 +30,10 @@
                         <hr>
                     </div>
                 </div>
-                <p>{{errorMessage}}</p>
+                <p>{{errorMessageSearchNotFound}}</p>
+                <ng-template #showThis>
+                    <p>{{errorMessageSection}}</p>
+                </ng-template>
             </div>
         </div>
     </div>

@@ -11,11 +11,13 @@ export class DetailsComponent implements OnInit {
 
   title;
   body;
-  renderedView = false;
   commentBody;
   commentBodyFiltered;
+  errorMessageSection = '';
+  errorMessageSearchNotFound = '';
+  renderedView = false;
   availability = false;
-  errorMessage = '';
+  inputSearch = false;
 
   constructor(
     private postService: PostsService,
@@ -54,11 +56,13 @@ export class DetailsComponent implements OnInit {
           }
         }
       );
-    } 
+    }
+    this.inputSearch = true;
+    this.errorMessageSection = 'No comment found!';
   }
 
   applyFilter(filterValue: string) {
-    this.errorMessage = '';
+    this.errorMessageSearchNotFound = '';
     if (this.commentBody) {
       this.commentBodyFiltered = this.commentBody.filter(
         item => item.name.toLowerCase().includes(filterValue.toLowerCase()) ||
@@ -66,7 +70,7 @@ export class DetailsComponent implements OnInit {
         item.body.toLowerCase().includes(filterValue.toLowerCase())
       );
       if (this.commentBodyFiltered.length === 0) {
-        this.errorMessage = 'No comment found!';
+        this.errorMessageSearchNotFound = 'No comment found!';
       }
     } else {
       this.commentBodyFiltered = this.commentBody;
