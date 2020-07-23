@@ -63,21 +63,16 @@ export class DetailsComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.errorMessageSearchNotFound = '';
+
     if (this.commentBody) {
       this.commentBodyFiltered = this.commentBody.filter(
         item => item.name.toLowerCase().includes(filterValue.toLowerCase()) ||
         item.email.toLowerCase().includes(filterValue.toLowerCase()) ||
         item.body.toLowerCase().includes(filterValue.toLowerCase())
       );
-      if (this.commentBodyFiltered.length === 0) {
-        this.errorMessage();
-      }
-    } else {
-      this.commentBodyFiltered = this.commentBody;
-      this.availability = true;
     }
 
-    if (!this.commentBody) {
+    if (this.commentBodyFiltered.length === 0) {
       this.errorMessage();
     }
   }
