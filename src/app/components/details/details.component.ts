@@ -70,12 +70,20 @@ export class DetailsComponent implements OnInit {
         item.body.toLowerCase().includes(filterValue.toLowerCase())
       );
       if (this.commentBodyFiltered.length === 0) {
-        this.errorMessageSearchNotFound = 'No comment found!';
+        this.errorMessage();
       }
     } else {
       this.commentBodyFiltered = this.commentBody;
       this.availability = true;
     }
+
+    if (!this.commentBody) {
+      this.errorMessage();
+    }
+  }
+
+  errorMessage() {
+    this.errorMessageSearchNotFound = 'No comment found!';
   }
 }
 
